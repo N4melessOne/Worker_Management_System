@@ -1,12 +1,15 @@
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WMS_Main extends JFrame{
     private JPanel WMS_MainWindow;
     private JTree plantsTree;
     private JLabel enterpriseNameLbl;
     private JLabel plantsLbl;
+    private JButton addPlantBtn;
 
 
     public WMS_Main(){
@@ -16,6 +19,13 @@ public class WMS_Main extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createUIComponents();
         setVisible(true);
+
+        addPlantBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                WMS_MainWindow.setBackground(Color.cyan);
+            }
+        });
     }
 
     public static DefaultMutableTreeNode getPlantsTree(){
