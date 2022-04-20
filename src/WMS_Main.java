@@ -1,4 +1,8 @@
 import javax.swing.*;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +13,8 @@ public class WMS_Main extends JFrame{
     private JLabel enterpriseNameLbl;
     private JLabel plantsLbl;
     private JButton addPlantBtn;
+    private JTable workersTable;
+    private WMS_Add_Plant addPlant;
 
 
     public WMS_Main(){
@@ -17,13 +23,27 @@ public class WMS_Main extends JFrame{
         setSize(1280, 720);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createUIComponents();
+        addPlant = null;
         setVisible(true);
 
         addPlantBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                WMS_Add_Plant add_plant = new WMS_Add_Plant();
-                add_plant.setVisible(true);
+                if (addPlant == null){
+                    addPlant = new WMS_Add_Plant();
+                    addPlant.toFront();
+                }
+                else {
+                    addPlant.dispose();
+                    addPlant = null;
+                }
+            }
+        });
+        plantsTree.addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                //Validálni, hogy mi a neve az adott node-nak
+                //Ha plant van a nevében, akkor ModifyPlant, ha division, akkor DDivModify!
             }
         });
     }
@@ -61,6 +81,17 @@ public class WMS_Main extends JFrame{
         return plants;
     }
 
+    public static JTable getWorkers(){
+        String[][] data = {{"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}};
+        String[] columns = {"Name", "Address", "Date of Birth", "Post", "Mobile", "Email", "Salary", "Sex"};
+        JTable tempTable = new JTable(data, columns);
+
+        return  tempTable;
+    }
+
     public static void main(String[] args) {
         JFrame WMSMainWindow = new WMS_Main();
         WMSMainWindow.pack();
@@ -69,5 +100,6 @@ public class WMS_Main extends JFrame{
     private void createUIComponents() {
         plantsTree = new JTree(WMS_Main.getPlantsTree());
         plantsTree.setScrollsOnExpand(true);
+        workersTable = WMS_Main.getWorkers();
     }
 }
