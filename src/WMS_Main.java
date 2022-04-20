@@ -12,5 +12,6 @@ public class WMS_Main extends JFrame{
         WMSMainWindow.pack();
         WMSMainWindow.setDefaultCloseOperation(EXIT_ON_CLOSE);
         WMSMainWindow.setVisible(true);
+        System.out.println("ÜDV");
     }
 }
