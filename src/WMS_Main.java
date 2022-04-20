@@ -2,6 +2,9 @@ import javax.swing.*;
 
 public class WMS_Main extends JFrame{
     private JPanel WMS_MainWindow;
+    private JTree plantsTree;
+    private JLabel entrprNameLbl;
+    private JLabel plantsLbl;
 
     public WMS_Main(){
         setContentPane(WMS_MainWindow);
@@ -12,7 +15,7 @@ public class WMS_Main extends JFrame{
     }
 
     public static void main(String[] args) {
-        JFrame WMSMainWindow = new JFrame("WMS_Main");
+        JFrame WMSMainWindow = new WMS_Main();
         WMSMainWindow.pack();
     }
 }
