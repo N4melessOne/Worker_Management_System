@@ -6,7 +6,7 @@
       <xy x="20" y="20" width="1280" height="720"/>
     </constraints>
     <properties>
-      <preferredSize width="1920" height="1080"/>
+      <preferredSize width="1280" height="720"/>
     </properties>
     <border type="none" title="WMS Main Window" title-justification="1" title-position="1">
       <font/>

@@ -1,6 +1,5 @@
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,7 +14,7 @@ public class WMS_Main extends JFrame{
     public WMS_Main(){
         setContentPane(WMS_MainWindow);
         setTitle("WMS Main Window");
-        setSize(1920, 1080);
+        setSize(1280, 720);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createUIComponents();
         setVisible(true);
@@ -23,7 +22,8 @@ public class WMS_Main extends JFrame{
         addPlantBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                WMS_MainWindow.setBackground(Color.cyan);
+                WMS_Add_Plant add_plant = new WMS_Add_Plant();
+                add_plant.setVisible(true);
             }
         });
     }
@@ -68,5 +68,6 @@ public class WMS_Main extends JFrame{
 
     private void createUIComponents() {
         plantsTree = new JTree(WMS_Main.getPlantsTree());
+        plantsTree.setScrollsOnExpand(true);
     }
 }
