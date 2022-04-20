@@ -10,6 +10,5 @@ public class WMS_Main extends JFrame{
         WMSMainWindow.setVisible(true);
         WMSMainWindow.setDefaultCloseOperation(EXIT_ON_CLOSE);
         WMSMainWindow.pack();
-        System.out.println("XDDDDD");
     }
 }
