@@ -1,8 +1,6 @@
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +12,11 @@ public class WMS_Main extends JFrame{
     private JLabel plantsLbl;
     private JButton addPlantBtn;
     private JTable workersTable;
+    private JButton addDepartmentBtn;
+    private JButton deletePlantBtn;
+    private JButton deleteDepartmentBtn;
+    private JButton addWorkerBtn;
+    private JButton deleteWorkerBtn;
     private WMS_Add_Plant addPlant;
 
 
