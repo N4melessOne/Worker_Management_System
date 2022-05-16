@@ -74,6 +74,45 @@ public class WMS_Main extends JFrame{
                 }
             }
         });
+        deletePlantBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (deletePlant == null){
+                    deletePlant = new WMS_DeletePlant();
+                    deletePlant.toFront();
+                }
+                else {
+                    deletePlant.dispose();
+                    deletePlant = null;
+                }
+            }
+        });
+        deleteDepartmentBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (deleteDepartment == null){
+                    deleteDepartment = new WMS_DeleteDepartment();
+                    deleteDepartment.toFront();
+                }
+                else {
+                    deleteDepartment.dispose();
+                    deleteDepartment = null;
+                }
+            }
+        });
+        deleteWorkerBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (deleteWorker == null){
+                    deleteWorker = new WMS_DeleteWorker();
+                    deleteWorker.toFront();
+                }
+                else {
+                    deleteWorker.dispose();
+                    deleteWorker = null;
+                }
+            }
+        });
 
         plantsTree.addTreeSelectionListener(new TreeSelectionListener() {
             @Override
