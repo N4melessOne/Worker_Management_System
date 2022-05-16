@@ -17,7 +17,7 @@ public class WMS_Main extends JFrame{
     private JButton deleteDepartmentBtn;
     private JButton addWorkerBtn;
     private JButton deleteWorkerBtn;
-    private WMS_Add_Plant addPlant;
+    private WMS_AddPlant addPlant;
 
 
     public WMS_Main(){
@@ -33,7 +33,7 @@ public class WMS_Main extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (addPlant == null){
-                    addPlant = new WMS_Add_Plant();
+                    addPlant = new WMS_AddPlant();
                     addPlant.toFront();
                 }
                 else {
