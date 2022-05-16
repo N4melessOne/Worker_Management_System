@@ -19,9 +19,9 @@ public class WMS_Main extends JFrame{
     private JButton deleteWorkerBtn;
     private WMS_AddPlant addPlant;
     private WMS_AddDepartment addDepartment;
+    private WMS_AddWorker addWorker;
     private WMS_DeletePlant deletePlant;
     private WMS_DeleteDepartment deleteDepartment;
-    private WMS_AddWorker addWorker;
     private WMS_DeleteWorker deleteWorker;
 
 
@@ -61,6 +61,20 @@ public class WMS_Main extends JFrame{
                 }
             }
         });
+        addWorkerBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (addWorker == null){
+                    addWorker = new WMS_AddWorker();
+                    addWorker.toFront();
+                }
+                else {
+                    addWorker.dispose();
+                    addWorker = null;
+                }
+            }
+        });
+
         plantsTree.addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
