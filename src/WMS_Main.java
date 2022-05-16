@@ -18,6 +18,7 @@ public class WMS_Main extends JFrame{
     private JButton addWorkerBtn;
     private JButton deleteWorkerBtn;
     private WMS_AddPlant addPlant;
+    private WMS_AddDepartment addDepartment;
 
 
     public WMS_Main(){
@@ -27,6 +28,7 @@ public class WMS_Main extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createUIComponents();
         addPlant = null;
+        addDepartment = null;
         setVisible(true);
 
         addPlantBtn.addActionListener(new ActionListener() {
@@ -39,6 +41,19 @@ public class WMS_Main extends JFrame{
                 else {
                     addPlant.dispose();
                     addPlant = null;
+                }
+            }
+        });
+        addDepartmentBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (addDepartment == null){
+                    addDepartment = new WMS_AddDepartment();
+                    addDepartment.toFront();
+                }
+                else {
+                    addDepartment.dispose();
+                    addDepartment = null;
                 }
             }
         });
