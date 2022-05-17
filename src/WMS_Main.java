@@ -24,6 +24,7 @@ public class WMS_Main extends JFrame{
     private WMS_DeletePlant deletePlant;
     private WMS_DeleteDepartment deleteDepartment;
     private WMS_DeleteWorker deleteWorker;
+    private WMS_LoginForm loginForm;
 
 
     public WMS_Main(){
@@ -110,6 +111,19 @@ public class WMS_Main extends JFrame{
                 else {
                     deleteWorker.dispose();
                     deleteWorker = null;
+                }
+            }
+        });
+        loginBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (loginForm == null){
+                    loginForm = new WMS_LoginForm();
+                    loginForm.toFront();
+                }
+                else {
+                    loginForm.dispose();
+                    loginForm = null;
                 }
             }
         });
