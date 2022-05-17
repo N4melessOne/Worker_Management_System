@@ -31,9 +31,8 @@ public class WMS_Main extends JFrame{
         setSize(1280, 720);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createUIComponents();
-        addPlant = null;
-        addDepartment = null;
         setVisible(true);
+
 
         addPlantBtn.addActionListener(new ActionListener() {
             @Override
