@@ -10,6 +10,7 @@ public class WMS_DeleteDepartment extends JFrame{
         setSize(640, 480);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {
