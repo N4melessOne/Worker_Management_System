@@ -6,10 +6,10 @@ public class Enterprise {
     private double sumRevenue;
     private double sumCost;
 
-    public void setProfit(double profit) {
+    public void setProfit(){
         double tempCost = this.getSumCost();
         double tempRevenue = this.getSumRevenue();
-        this.profit= (tempRevenue - tempCost);
+        this.profit = (tempRevenue - tempCost);
     }
 
     private double profit;

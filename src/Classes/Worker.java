@@ -7,19 +7,19 @@ public class Worker {
     private int salary;
     private int workerAddress;
     private int departmentId;
-    private byte leader;
+    private boolean isLeader;
     private Date birthDate;
     private String workerName;
     private String mobile;
     private String email;
 
-    public Worker(int workerId, int salary, int workerAddress, int departmentId, byte leader,
+    public Worker(int workerId, int salary, int workerAddress, int departmentId, boolean isLeader,
                   Date birthDate, String workerName, String mobile, String email) {
         this.workerId = workerId;
         this.salary = salary;
         this.workerAddress = workerAddress;
         this.departmentId = departmentId;
-        this.leader = leader;
+        this.isLeader = isLeader;
         this.birthDate = birthDate;
         this.workerName = workerName;
         this.mobile = mobile;
@@ -50,12 +50,12 @@ public class Worker {
         this.departmentId = departmentId;
     }
 
-    public byte getLeader() {
-        return leader;
+    public boolean getLeader() {
+        return isLeader;
     }
 
-    public void setLeader(byte leader) {
-        this.leader = leader;
+    public void setLeader(boolean leader) {
+        this.isLeader = leader;
     }
 
     public Date getBirthDate() {
