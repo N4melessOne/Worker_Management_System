@@ -8,7 +8,7 @@ public class Enterprise {
 
     private static Enterprise instance;
 
-    public static Enterprise GetSinstance(int enterpriseId, String enterpriseName, double sumRevenue, double sumCost, double profit){
+    public static Enterprise GetInstance(int enterpriseId, String enterpriseName, double sumRevenue, double sumCost, double profit){
         if( instance == null){
             instance = new Enterprise(enterpriseId, enterpriseName,sumRevenue,sumCost,profit);
         }
