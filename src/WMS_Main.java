@@ -4,6 +4,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class WMS_Main extends JFrame{
     private JPanel WMS_MainWindow;
@@ -181,9 +182,10 @@ public class WMS_Main extends JFrame{
         return  tempTable;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         JFrame WMSMainWindow = new WMS_Main();
         WMSMainWindow.pack();
+        SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
     }
 
     private void createUIComponents() {

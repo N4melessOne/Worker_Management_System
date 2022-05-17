@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="@localhost">
+<dataSource name="worker_management_system@localhost">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.39">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
@@ -1141,7 +1141,6 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <Charset>utf8mb4</Charset>
     </collation>
     <schema id="324" parent="1" name="information_schema">
-      <Current>1</Current>
       <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="325" parent="1" name="mysql">
@@ -1157,6 +1156,7 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <CollationName>latin1_swedish_ci</CollationName>
     </schema>
     <schema id="329" parent="1" name="worker_management_system">
+      <Current>1</Current>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="330" parent="1" name="wp2_0405">
