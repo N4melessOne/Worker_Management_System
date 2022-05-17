@@ -6,7 +6,17 @@ public class Enterprise {
     private double sumRevenue;
     private double sumCost;
 
-    public Enterprise(int enterpriseId, String enterpriseName, double sumRevenue, double sumCost, double profit) {
+    private static Enterprise instance;
+
+    public static Enterprise GetSinstance(int enterpriseId, String enterpriseName, double sumRevenue, double sumCost, double profit){
+        if( instance == null){
+            instance = new Enterprise(enterpriseId, enterpriseName,sumRevenue,sumCost,profit);
+        }
+        return instance;
+    }
+
+
+    private Enterprise(int enterpriseId, String enterpriseName, double sumRevenue, double sumCost, double profit) {
         this.enterpriseId = enterpriseId;
         this.enterpriseName = enterpriseName;
         this.sumRevenue = sumRevenue;
