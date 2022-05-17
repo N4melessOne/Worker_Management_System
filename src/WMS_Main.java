@@ -35,6 +35,7 @@ public class WMS_Main extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createUIComponents();
         setVisible(true);
+        setLocationRelativeTo(null);
 
 
         addPlantBtn.addActionListener(new ActionListener() {
