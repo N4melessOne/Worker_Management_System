@@ -17,6 +17,7 @@ public class WMS_Main extends JFrame{
     private JButton deleteDepartmentBtn;
     private JButton addWorkerBtn;
     private JButton deleteWorkerBtn;
+    private JButton loginBtn;
     private WMS_AddPlant addPlant;
     private WMS_AddDepartment addDepartment;
     private WMS_AddWorker addWorker;
