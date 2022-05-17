@@ -6,6 +6,14 @@ public class Enterprise {
     private double sumRevenue;
     private double sumCost;
 
+    public Enterprise(int enterpriseId, String enterpriseName, double sumRevenue, double sumCost, double profit) {
+        this.enterpriseId = enterpriseId;
+        this.enterpriseName = enterpriseName;
+        this.sumRevenue = sumRevenue;
+        this.sumCost = sumCost;
+        this.profit = profit;
+    }
+
     public void setProfit(){
         double tempCost = this.getSumCost();
         double tempRevenue = this.getSumRevenue();
@@ -49,8 +57,6 @@ public class Enterprise {
     public double getProfit() {
         return profit;
     }
-
-
 
 
 }
