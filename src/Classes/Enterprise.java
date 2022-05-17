@@ -9,7 +9,7 @@ public class Enterprise {
     public void setProfit(double profit) {
         double tempCost = this.getSumCost();
         double tempRevenue = this.getSumRevenue();
-        return (tempRevenue - tempCost);
+        this.profit= (tempRevenue - tempCost);
     }
 
     private double profit;
