@@ -17,12 +17,14 @@ public class WMS_Main extends JFrame{
     private JButton deleteDepartmentBtn;
     private JButton addWorkerBtn;
     private JButton deleteWorkerBtn;
+    private JButton loginBtn;
     private WMS_AddPlant addPlant;
     private WMS_AddDepartment addDepartment;
     private WMS_AddWorker addWorker;
     private WMS_DeletePlant deletePlant;
     private WMS_DeleteDepartment deleteDepartment;
     private WMS_DeleteWorker deleteWorker;
+    private WMS_LoginForm loginForm;
 
 
     public WMS_Main(){
@@ -31,9 +33,8 @@ public class WMS_Main extends JFrame{
         setSize(1280, 720);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createUIComponents();
-        addPlant = null;
-        addDepartment = null;
         setVisible(true);
+
 
         addPlantBtn.addActionListener(new ActionListener() {
             @Override
@@ -110,6 +111,19 @@ public class WMS_Main extends JFrame{
                 else {
                     deleteWorker.dispose();
                     deleteWorker = null;
+                }
+            }
+        });
+        loginBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (loginForm == null){
+                    loginForm = new WMS_LoginForm();
+                    loginForm.toFront();
+                }
+                else {
+                    loginForm.dispose();
+                    loginForm = null;
                 }
             }
         });
