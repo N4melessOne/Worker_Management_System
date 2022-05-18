@@ -27,7 +27,6 @@ public class WMS_LoginForm extends JFrame{
                 try {
 
                     int temp;
-
                     if (Helper.tryParse(idTb.getText()) == true) {
                         temp = Integer.parseInt(idTb.getText());
                         ResultSet result = SQLHandler.executeSelect(String.format("SELECT leader FROM workers WHERE workerId=%d", temp));

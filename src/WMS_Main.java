@@ -11,7 +11,7 @@ public class WMS_Main extends JFrame{
     private JTree plantsTree;
     private JLabel enterpriseNameLbl;
     private JLabel plantsLbl;
-    private static JButton addPlantBtn;
+    private JButton addPlantBtn;
     private JTable workersTable;
     private JButton addDepartmentBtn;
     private JButton deletePlantBtn;
@@ -27,6 +27,15 @@ public class WMS_Main extends JFrame{
     private WMS_DeleteWorker deleteWorker;
     private WMS_LoginForm loginForm;
 
+    public void modifyFunctions(Boolean enabled){
+        addPlantBtn.setEnabled(enabled);
+        addDepartmentBtn.setEnabled(enabled);
+        addWorkerBtn.setEnabled(enabled);
+        deletePlantBtn.setEnabled(enabled);
+        deleteDepartmentBtn.setEnabled(enabled);
+        deleteWorkerBtn.setEnabled(enabled);
+    }
+
     public WMS_Main(){
         setContentPane(WMS_MainWindow);
         setTitle("WMS Main Window");
@@ -35,12 +44,8 @@ public class WMS_Main extends JFrame{
         createUIComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        addPlantBtn.setEnabled(false);
-        addDepartmentBtn.setEnabled(false);
-        addWorkerBtn.setEnabled(false);
-        deletePlantBtn.setEnabled(false);
-        deleteDepartmentBtn.setEnabled(false);
-        deleteWorkerBtn.setEnabled(false);
+        modifyFunctions(false);
+
 
         addPlantBtn.addActionListener(new ActionListener() {
             @Override
