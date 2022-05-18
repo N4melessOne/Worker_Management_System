@@ -8,7 +8,7 @@ public class WMS_DeleteWorker extends JFrame{
 
     public WMS_DeleteWorker(){
         setContentPane(WMS_DeleteWorker);
-        setTitle("WMS Login As Leader");
+        setTitle("WMS Delete Worker");
         setLocationRelativeTo(null);
         setSize(320,200);
         setResizable(false);

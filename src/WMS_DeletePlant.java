@@ -8,7 +8,7 @@ public class WMS_DeletePlant extends JFrame{
 
     public WMS_DeletePlant(){
         setContentPane(WMS_DeletePlant);
-        setTitle("WMS Login As Leader");
+        setTitle("WMS Delete Plant");
         setLocationRelativeTo(null);
         setSize(320,200);
         setResizable(false);

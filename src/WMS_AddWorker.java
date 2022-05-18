@@ -8,10 +8,11 @@ public class WMS_AddWorker extends JFrame{
     public WMS_AddWorker(){
         setContentPane(WMS_AddWorker);
         setTitle("WMS Add Worker");
-        setSize(640, 480);
+        setLocationRelativeTo(null);
+        setSize(400,600);
+        setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
-        setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {
