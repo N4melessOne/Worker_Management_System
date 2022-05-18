@@ -22,6 +22,11 @@ public class WMS_LoginForm extends JFrame{
         idOkBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int temp;
+                if (Helper.tryParse(idTb.getText()) == true){
+                    temp =Integer.parseInt(idTb.getText());
+                }
+
             }
         });
     }
