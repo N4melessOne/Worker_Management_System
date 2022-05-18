@@ -191,7 +191,7 @@ public class WMS_Main extends JFrame{
     public static void main(String[] args) throws SQLException {
         JFrame WMSMainWindow = new WMS_Main();
         WMSMainWindow.pack();
-        SQLConnector.connect("jdbc:mariadb://localhost:3306/worker_management_system");
+        SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
     }
 
     private void createUIComponents() {
