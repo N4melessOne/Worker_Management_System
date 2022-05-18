@@ -30,11 +30,10 @@ public class WMS_LoginForm extends JFrame{
                     if (Helper.tryParse(idTb.getText()) == true) {
                         temp = Integer.parseInt(idTb.getText());
                         ResultSet result = SQLHandler.executeSelect(String.format("SELECT leader FROM workers WHERE workerId=%d", temp));
-                        ArrayList<String> resultArray = new ArrayList<String>();
+                        ArrayList<String> resultList = new ArrayList<String>();
                         while (result.next()){
-                            resultArray.add(result.getString("leader"));
+                            resultList.add(result.getString("leader"));
                         }
-                        JOptionPane.showMessageDialog(WMS_LoginForm, resultArray);
                     }
                 }catch (SQLException ex) {
                     throw new RuntimeException(ex);
