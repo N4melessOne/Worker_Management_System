@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class SQLHandler {
+public class SQLConnector {
     public static void connect(String jdbcUrl) throws SQLException {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
@@ -15,4 +15,5 @@ public class SQLHandler {
             throw new RuntimeException(e);
         }
     }
+
 }
