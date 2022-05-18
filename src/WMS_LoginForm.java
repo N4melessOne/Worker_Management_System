@@ -27,12 +27,17 @@ public class WMS_LoginForm extends JFrame{
                 try {
 
                     int temp;
+
                     if (Helper.tryParse(idTb.getText()) == true) {
                         temp = Integer.parseInt(idTb.getText());
                         ResultSet result = SQLHandler.executeSelect(String.format("SELECT leader FROM workers WHERE workerId=%d", temp));
                         ArrayList<String> resultList = new ArrayList<String>();
                         while (result.next()){
                             resultList.add(result.getString("leader"));
+                        }
+
+                        if(!resultList.isEmpty() && resultList.get(0).equals("1")){
+                            JOptionPane.showMessageDialog(WMS_LoginForm, "You are successfully logged in as a leader!");
                         }
                     }
                 }catch (SQLException ex) {

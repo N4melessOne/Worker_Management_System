@@ -27,7 +27,6 @@ public class WMS_Main extends JFrame{
     private WMS_DeleteWorker deleteWorker;
     private WMS_LoginForm loginForm;
 
-
     public WMS_Main(){
         setContentPane(WMS_MainWindow);
         setTitle("WMS Main Window");
@@ -36,12 +35,6 @@ public class WMS_Main extends JFrame{
         createUIComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        //addPlantBtn.setEnabled(false);
-        //addDepartmentBtn.setEnabled(false);
-        //addWorkerBtn.setEnabled(false);
-        //deletePlantBtn.setEnabled(false);
-        //deleteDepartmentBtn.setEnabled(false);
-        //deleteWorkerBtn.setEnabled(false);
 
         addPlantBtn.addActionListener(new ActionListener() {
             @Override
