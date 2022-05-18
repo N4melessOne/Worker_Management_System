@@ -24,4 +24,19 @@ public class SQLHandler {
         ResultSet result = statement.executeQuery();
         return result;
     }
+
+    public  static Boolean executeDelete(String sql){
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+        } catch (SQLException e) {
+            return false;
+        }
+        try {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
+    }
 }
