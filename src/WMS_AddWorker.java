@@ -1,3 +1,5 @@
+import BaseClasses.Worker;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,6 +38,16 @@ public class WMS_AddWorker extends JFrame{
                 //TODO:Try to validate all the information, if there's time for it!
                 String[] data = { workerNameTb.getText(), addressTb.getText(), birthDateTb.getText(),
                         positionTb.getText(), departmentIdTb.getText(), mobileTb.getText(), emailTb.getText(), salaryTb.getText() };
+                Boolean created = SQLHandler.executeInsert(String.format("INSERT INTO workers (workerName,workerAddress,birthDate,departmentId,leader,mobile,email,salary)" +
+                        " VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]));
+
+                //TODO:Doesn't work, so should check it out!
+                if(created){
+                    JOptionPane.showMessageDialog(WMS_AddWorker, "You have successfully created a new worker!");
+                }
+                else{
+                    JOptionPane.showMessageDialog(WMS_AddWorker, "There was a problem with inserting the new worker!"); //TODO:Try to be specific here!
+                }
             }
         });
     }
