@@ -1,10 +1,13 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WMS_LoginForm extends JFrame{
     private JPanel WMS_LoginForm;
     private JTextField idTb;
     private JLabel idLbl;
     private JButton idOkBtn;
+
 
     public WMS_LoginForm(){
         setContentPane(WMS_LoginForm);
@@ -16,6 +19,11 @@ public class WMS_LoginForm extends JFrame{
         setVisible(true);
         idOkBtn.setEnabled(false);
 
+        idOkBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
     }
 
     public static void main(String[] args) {
