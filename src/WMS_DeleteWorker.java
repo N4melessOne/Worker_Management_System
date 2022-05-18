@@ -23,7 +23,7 @@ public class WMS_DeleteWorker extends JFrame{
                 int temp;
                 if (Helper.tryParse(idTb.getText()) == true) {
                     temp = Integer.parseInt(idTb.getText());
-                    Boolean deleted = SQLHandler.executeDelete(String.format("DELETE FROM worker WHERE workerId=%d", temp));
+                    Boolean deleted = SQLHandler.executeDelete(String.format("DELETE FROM workers WHERE workerId=%d", temp));
 
                     if(deleted){
                         JOptionPane.showMessageDialog(WMS_DeleteWorker, String.format("You have successfully deleted the %d. worker.", temp));
