@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WMS_AddWorker extends JFrame{
     private JPanel WMS_AddWorker;
@@ -10,7 +12,6 @@ public class WMS_AddWorker extends JFrame{
     private JTextField mobileTb;
     private JTextField emailTb;
     private JTextField salaryTb;
-    private JTextField textField8;
     private JButton addWorkerBtn;
     private JLabel workerAddressLbl;
     private JLabel birthDateLbl;
@@ -29,6 +30,14 @@ public class WMS_AddWorker extends JFrame{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
         setLocationRelativeTo(null);
+        addWorkerBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO:Try to validate all the information, if there's time for it!
+                String[] data = { workerNameTb.getText(), addressTb.getText(), birthDateTb.getText(),
+                        positionTb.getText(), departmentIdTb.getText(), mobileTb.getText(), emailTb.getText(), salaryTb.getText() };
+            }
+        });
     }
 
     public static void main(String[] args) {
