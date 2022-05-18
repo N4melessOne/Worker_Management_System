@@ -1,9 +1,11 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WMS_DeleteWorker extends JFrame{
     private JPanel WMS_DeleteWorker;
     private JTextField idTb;
-    private JButton deleteWorkerBtn;
+    private JButton deleteBtn;
     private JLabel idLbl;
 
     public WMS_DeleteWorker(){
@@ -14,6 +16,24 @@ public class WMS_DeleteWorker extends JFrame{
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+
+        deleteBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int temp;
+                if (Helper.tryParse(idTb.getText()) == true) {
+                    temp = Integer.parseInt(idTb.getText());
+                    Boolean deleted = SQLHandler.executeDelete(String.format("DELETE FROM worker WHERE workerId=%d", temp));
+
+                    if(deleted){
+                        JOptionPane.showMessageDialog(WMS_DeleteWorker, String.format("You have successfully deleted the %d. worker.", temp));
+                        dispose();
+                    }
+                    else
+                        JOptionPane.showMessageDialog(WMS_DeleteWorker, String.format("There is no worker, with the id of %d.", temp));
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
