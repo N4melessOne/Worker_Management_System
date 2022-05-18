@@ -15,4 +15,8 @@ public class SQLHandler {
             throw new RuntimeException(e);
         }
     }
+
+    public void execute(String statement){
+        String sql = "SELECT * FROM";
+    }
 }
