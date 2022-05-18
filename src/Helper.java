@@ -1,9 +1,11 @@
 public class Helper {
 
-    public int tryparse(String value, int defaultValue){
+    public boolean tryParse(String value){
         try{
-            return Integer.parseInt(value);
-            } catch (NumberFormatException e)
-            {return defaultValue;}
+            int temp = Integer.parseInt(value);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
         }
+    }
 }
