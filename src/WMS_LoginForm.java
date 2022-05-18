@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class WMS_LoginForm extends JFrame{
     private JPanel WMS_LoginForm;
@@ -17,15 +18,22 @@ public class WMS_LoginForm extends JFrame{
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
-        idOkBtn.setEnabled(false);
 
         idOkBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int temp;
-                if (Helper.tryParse(idTb.getText()) == true){
-                    temp =Integer.parseInt(idTb.getText());
+                try {
+
+                    int temp;
+                    if (Helper.tryParse(idTb.getText()) == true) {
+                        temp = Integer.parseInt(idTb.getText());
+                        String result = SQLHandler.execute(String.format("SELECT leader FROM workers WHERE workerId=%d", temp)).toString();
+                        JOptionPane.showMessageDialog(WMS_LoginForm, result);
+                    }
+                }catch (SQLException ex) {
+                    throw new RuntimeException(ex);
                 }
+
 
             }
         });
