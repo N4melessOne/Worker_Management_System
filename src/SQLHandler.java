@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class SQLHandler {
     private static Connection connection;
+    private static  PreparedStatement statement;
 
     public static void connect(String jdbcUrl) throws SQLException {
         try {
@@ -23,5 +24,33 @@ public class SQLHandler {
         PreparedStatement statement = connection.prepareStatement(query);
         ResultSet result = statement.executeQuery();
         return result;
+    }
+
+    public  static Boolean executeDelete(String sql){
+        try {
+            statement = connection.prepareStatement(sql);
+        } catch (SQLException e) {
+            return false;
+        }
+        try {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static Boolean executeInsert(String sql){
+        try {
+            statement = connection.prepareStatement(sql);
+        } catch (SQLException e) {
+            return false;
+        }
+        try {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
     }
 }
