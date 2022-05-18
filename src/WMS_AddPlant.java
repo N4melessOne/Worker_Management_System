@@ -2,7 +2,10 @@ import javax.swing.*;
 
 public class WMS_AddPlant extends JFrame{
     private JPanel WMS_AddPlant;
-    private JLabel testLbl;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
 
     public WMS_AddPlant(){
         setContentPane(WMS_AddPlant);
