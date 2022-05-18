@@ -2,7 +2,8 @@ import javax.swing.*;
 
 public class WMS_AddWorker extends JFrame{
     private JPanel WMS_AddWorker;
-    private JLabel testLbl;
+    private JTextField workerNameTb;
+    private JLabel workerNameLbl;
 
     public WMS_AddWorker(){
         setContentPane(WMS_AddWorker);

@@ -2,15 +2,18 @@ import javax.swing.*;
 
 public class WMS_DeleteWorker extends JFrame{
     private JPanel WMS_DeleteWorker;
-    private JLabel testLbl;
+    private JTextField idTb;
+    private JButton deleteWorkerBtn;
+    private JLabel idLbl;
 
     public WMS_DeleteWorker(){
         setContentPane(WMS_DeleteWorker);
-        setTitle("WMS Add Plant");
-        setSize(640, 480);
+        setTitle("WMS Login As Leader");
+        setLocationRelativeTo(null);
+        setSize(320,200);
+        setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
-        setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {

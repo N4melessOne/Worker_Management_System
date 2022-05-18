@@ -36,12 +36,12 @@ public class WMS_Main extends JFrame{
         createUIComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        addPlantBtn.setEnabled(false);
-        addDepartmentBtn.setEnabled(false);
-        addWorkerBtn.setEnabled(false);
-        deletePlantBtn.setEnabled(false);
-        deleteDepartmentBtn.setEnabled(false);
-        deleteWorkerBtn.setEnabled(false);
+        //addPlantBtn.setEnabled(false);
+        //addDepartmentBtn.setEnabled(false);
+        //addWorkerBtn.setEnabled(false);
+        //deletePlantBtn.setEnabled(false);
+        //deleteDepartmentBtn.setEnabled(false);
+        //deleteWorkerBtn.setEnabled(false);
 
         addPlantBtn.addActionListener(new ActionListener() {
             @Override
