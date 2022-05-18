@@ -1,3 +1,5 @@
+import com.mysql.cj.Query;
+
 import java.sql.*;
 
 
@@ -16,8 +18,9 @@ public class SQLHandler {
         }
     }
 
-    public static void execute(String statement) throws SQLException {
+    public static ResultSet execute(String statement) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(statement);
         ResultSet result = preparedStatement.executeQuery();
+        return result;
     }
 }
