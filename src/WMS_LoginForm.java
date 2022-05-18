@@ -43,8 +43,6 @@ public class WMS_LoginForm extends JFrame{
                 }catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-
-
             }
         });
     }

@@ -11,7 +11,7 @@ public class WMS_Main extends JFrame{
     private JTree plantsTree;
     private JLabel enterpriseNameLbl;
     private JLabel plantsLbl;
-    private JButton addPlantBtn;
+    private static JButton addPlantBtn;
     private JTable workersTable;
     private JButton addDepartmentBtn;
     private JButton deletePlantBtn;
@@ -35,6 +35,12 @@ public class WMS_Main extends JFrame{
         createUIComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        addPlantBtn.setEnabled(false);
+        addDepartmentBtn.setEnabled(false);
+        addWorkerBtn.setEnabled(false);
+        deletePlantBtn.setEnabled(false);
+        deleteDepartmentBtn.setEnabled(false);
+        deleteWorkerBtn.setEnabled(false);
 
         addPlantBtn.addActionListener(new ActionListener() {
             @Override
