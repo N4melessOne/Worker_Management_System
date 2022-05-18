@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class WMS_LoginForm extends JFrame{
     private JPanel WMS_LoginForm;
@@ -28,9 +29,12 @@ public class WMS_LoginForm extends JFrame{
                     int temp;
                     if (Helper.tryParse(idTb.getText()) == true) {
                         temp = Integer.parseInt(idTb.getText());
-                        ResultSet result = SQLHandler.execute(String.format("SELECT leader FROM workers WHERE workerId=%d", temp));
-                        String leader = result.getString(6);
-                        JOptionPane.showMessageDialog(WMS_LoginForm, leader);
+                        ResultSet result = SQLHandler.executeSelect(String.format("SELECT leader FROM workers WHERE workerId=%d", temp));
+                        ArrayList<String> resultArray = new ArrayList<String>();
+                        while (result.next()){
+                            resultArray.add(result.getString("leader"));
+                        }
+                        JOptionPane.showMessageDialog(WMS_LoginForm, resultArray);
                     }
                 }catch (SQLException ex) {
                     throw new RuntimeException(ex);

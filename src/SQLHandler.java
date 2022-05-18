@@ -1,6 +1,7 @@
 
 
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class SQLHandler {
@@ -18,9 +19,9 @@ public class SQLHandler {
         }
     }
 
-    public static ResultSet execute(String statement) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement(statement);
-        ResultSet result = preparedStatement.executeQuery();
+    public static ResultSet executeSelect(String query) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet result = statement.executeQuery();
         return result;
     }
 }
