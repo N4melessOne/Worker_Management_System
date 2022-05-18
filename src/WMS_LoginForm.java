@@ -37,6 +37,7 @@ public class WMS_LoginForm extends JFrame{
 
                         if(!resultList.isEmpty() && resultList.get(0).equals("1")){
                             JOptionPane.showMessageDialog(WMS_LoginForm, "You are successfully logged in as a leader!");
+                            WMS_Main.setLeaderSignedIn(true);
                             dispose();
                         }
                     }

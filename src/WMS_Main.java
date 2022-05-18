@@ -27,13 +27,22 @@ public class WMS_Main extends JFrame{
     private WMS_DeleteWorker deleteWorker;
     private WMS_LoginForm loginForm;
 
-    public void modifyFunctions(Boolean enabled){
-        addPlantBtn.setEnabled(enabled);
-        addDepartmentBtn.setEnabled(enabled);
-        addWorkerBtn.setEnabled(enabled);
-        deletePlantBtn.setEnabled(enabled);
-        deleteDepartmentBtn.setEnabled(enabled);
-        deleteWorkerBtn.setEnabled(enabled);
+    public static Boolean getLeaderSignedIn() {
+        return isLeaderSignedIn;
+    }
+    public static void setLeaderSignedIn(Boolean leaderSignedIn) {
+        isLeaderSignedIn = leaderSignedIn;
+    }
+    private static Boolean isLeaderSignedIn = false;
+
+    public void modifyFunctions(){
+        addPlantBtn.setEnabled(isLeaderSignedIn);
+        addDepartmentBtn.setEnabled(isLeaderSignedIn);
+        addWorkerBtn.setEnabled(isLeaderSignedIn);
+        deletePlantBtn.setEnabled(isLeaderSignedIn);
+        deleteDepartmentBtn.setEnabled(isLeaderSignedIn);
+        deleteWorkerBtn.setEnabled(isLeaderSignedIn);
+        loginBtn.setEnabled(!isLeaderSignedIn);
     }
 
     public WMS_Main(){
@@ -44,7 +53,7 @@ public class WMS_Main extends JFrame{
         createUIComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        modifyFunctions(false);
+        modifyFunctions();
 
 
         addPlantBtn.addActionListener(new ActionListener() {
@@ -135,6 +144,7 @@ public class WMS_Main extends JFrame{
                 else {
                     loginForm.dispose();
                     loginForm = null;
+                    modifyFunctions();
                 }
             }
         });
@@ -142,8 +152,7 @@ public class WMS_Main extends JFrame{
         plantsTree.addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
-                //Validálni, hogy mi a neve az adott node-nak
-                //Ha plant van a nevében, akkor ModifyPlant, ha division, akkor DDivModify!
+
             }
         });
     }
