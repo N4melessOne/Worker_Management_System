@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class WMS_LoginForm extends JFrame{
@@ -27,8 +28,9 @@ public class WMS_LoginForm extends JFrame{
                     int temp;
                     if (Helper.tryParse(idTb.getText()) == true) {
                         temp = Integer.parseInt(idTb.getText());
-                        String result = SQLHandler.execute(String.format("SELECT leader FROM workers WHERE workerId=%d", temp)).toString();
-                        JOptionPane.showMessageDialog(WMS_LoginForm, result);
+                        ResultSet result = SQLHandler.execute(String.format("SELECT leader FROM workers WHERE workerId=%d", temp));
+                        String leader = result.getString(6);
+                        JOptionPane.showMessageDialog(WMS_LoginForm, leader);
                     }
                 }catch (SQLException ex) {
                     throw new RuntimeException(ex);
