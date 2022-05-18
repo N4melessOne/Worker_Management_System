@@ -1,5 +1,3 @@
-package Classes;
-
 public class Helper {
 
     public int tryparse(String value, int defaultValue){

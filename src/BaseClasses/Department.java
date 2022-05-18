@@ -1,4 +1,4 @@
-package Classes;
+package BaseClasses;
 
 public class Department {
     private int departmentId;
