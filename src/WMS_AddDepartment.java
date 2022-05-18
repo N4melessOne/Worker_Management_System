@@ -3,7 +3,7 @@ import javax.swing.*;
 public class WMS_AddDepartment extends JFrame{
     private JPanel WMS_AddDepartment;
     private JTextField departmentNameTb;
-    private JTextField maxWrokersTb;
+    private JTextField maxWorkersTb;
     private JButton addDepartmentBtn;
     private JLabel departmentNameIdLbl;
     private JLabel maxWorkerLbl;
