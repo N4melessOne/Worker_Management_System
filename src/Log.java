@@ -13,6 +13,9 @@ public class Log {
         if(!f.exists()){
             f.createNewFile();
         }
+        else{
+            f.delete();
+        }
 
         fh = new FileHandler(file_name, true);
         logger = Logger.getLogger("logger");

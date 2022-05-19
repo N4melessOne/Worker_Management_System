@@ -202,7 +202,7 @@ public class WMS_Main extends JFrame{
 
         try{
          Log mainLog = new Log("log.txt");
-         mainLog.logger.info("The application has been opened");
+         mainLog.logger.info("The application has been started");
         } catch(Exception e){}
 
         SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");

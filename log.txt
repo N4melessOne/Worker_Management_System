@@ -1,2 +1,4 @@
-máj. 19, 2022 10:57:47 DU. WMS_Main main
-INFO: The application has been opened
+máj. 19, 2022 11:59:08 DU. WMS_Main main
+INFO: The application has been started
+máj. 19, 2022 11:59:13 DU. WMS_LoginForm$1 actionPerformed
+INFO: Kovács Béla has tried to log in.

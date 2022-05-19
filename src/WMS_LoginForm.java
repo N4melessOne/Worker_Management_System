@@ -29,16 +29,28 @@ public class WMS_LoginForm extends JFrame{
                     int temp;
                     if (Helper.tryParse(idTb.getText()) == true) {
                         temp = Integer.parseInt(idTb.getText());
-                        ResultSet result = SQLHandler.executeSelect(String.format("SELECT leader FROM workers WHERE workerId=%d", temp));
+                        ResultSet result = SQLHandler.executeSelect(String.format("SELECT leader, workerName FROM workers WHERE workerId=%d", temp));
                         ArrayList<String> resultList = new ArrayList<String>();
                         while (result.next()){
                             resultList.add(result.getString("leader"));
+                            resultList.add(result.getString("workerName"));
                         }
 
                         if(!resultList.isEmpty() && resultList.get(0).equals("1")){
                             JOptionPane.showMessageDialog(WMS_LoginForm, "You are successfully logged in as a leader!");
                             WMS_Main.setLeaderSignedIn(true);
+                            try{
+                                Log mainLog = new Log("log.txt");
+                                mainLog.logger.info(String.format("%s has logged in.", resultList.get(1)));
+                            } catch(Exception exception){}
                             dispose();
+                        }
+                        else {
+                            try {
+                                Log mainLog = new Log("log.txt");
+                                mainLog.logger.info(String.format("%s has tried to log in.", resultList.get(1)));
+                            } catch (Exception exception) {
+                            }
                         }
                     }
                 }catch (SQLException ex) {
