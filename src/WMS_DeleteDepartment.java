@@ -14,11 +14,11 @@ public class WMS_DeleteDepartment extends JFrame{
     public WMS_DeleteDepartment(){
         setContentPane(WMS_DeleteDepartment);
         setTitle("WMS Login As Leader");
-        setLocationRelativeTo(null);
         setSize(320,200);
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
 
         deleteBtn.addActionListener(new ActionListener() {
             @Override

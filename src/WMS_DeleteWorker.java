@@ -11,11 +11,11 @@ public class WMS_DeleteWorker extends JFrame{
     public WMS_DeleteWorker(){
         setContentPane(WMS_DeleteWorker);
         setTitle("WMS Delete Worker");
-        setLocationRelativeTo(null);
         setSize(320,200);
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
 
         deleteBtn.addActionListener(new ActionListener() {
             @Override
