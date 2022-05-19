@@ -1,3 +1,5 @@
+import BaseClasses.Enterprise;
+
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -29,7 +31,7 @@ public class WMS_Main extends JFrame{
     private WMS_DeleteDepartment deleteDepartment;
     private WMS_DeleteWorker deleteWorker;
     private WMS_LoginForm loginForm;
-    public static Logger logger;
+    private Enterprise enterprise;
 
     public static Boolean getLeaderSignedIn() {
         return isLeaderSignedIn;
@@ -59,6 +61,12 @@ public class WMS_Main extends JFrame{
         } catch (SQLException e) {
             //TODO:log if there are any problems!
         }
+        try {
+            enterprise = initializeEnterprise();
+        } catch (SQLException e) {
+            //TODO:Log if there are any problems!
+        }
+        enterpriseNameLbl.setText(enterprise.getEnterpriseName());
         setVisible(true);
         setLocationRelativeTo(null);
         modifyFunctions();
@@ -207,12 +215,29 @@ public class WMS_Main extends JFrame{
         return workerTable;
     }
 
+    public static Enterprise initializeEnterprise() throws SQLException {
+        ResultSet resultEnterprise = SQLHandler.executeSelect("SELECT * FROM enterprise");
+        String enterpriseName = null;
+        int id = 0, sumRevenue = 0, sumCost = 0, profit = 0;
+        while (resultEnterprise.next()){
+            id = resultEnterprise.getInt("enterpriseId");
+            enterpriseName = resultEnterprise.getString("enterpriseName");
+            sumRevenue = resultEnterprise.getInt("sumRevenue");
+            sumCost = resultEnterprise.getInt("sumCost");
+            profit = resultEnterprise.getInt("profit");
+        }
+
+        Enterprise enterprise = Enterprise.GetInstance(id, enterpriseName, sumRevenue, sumCost, profit);
+        return enterprise;
+    }
+
     public static void main(String[] args) throws SQLException {
         try{
          Log mainLog = new Log("log.txt");
          mainLog.logger.info("The application has been started.");
-        } catch(Exception e){}
+        } catch(Exception e){
 
+        }
         SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
         JFrame WMSMainWindow = new WMS_Main();
         WMSMainWindow.pack();
