@@ -7,6 +7,9 @@ public class Plant {
     private double revenue;
     private double cost;
 
+    public Plant(){
+
+    }
     public Plant(int plantId, String plantName, String plantAddress, double revenue, double cost) {
         this.plantId = plantId;
         this.plantName = plantName;

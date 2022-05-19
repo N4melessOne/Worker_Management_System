@@ -5,6 +5,10 @@ public class Department {
     private String departmentName;
     private int maxWorkers;
 
+
+    public Department(){
+
+    }
     public Department(int departmentId, String departmentName, int maxWorkers) {
         this.departmentId = departmentId;
         this.departmentName = departmentName;
