@@ -1,2 +1,2 @@
-máj. 20, 2022 12:29:00 DE. WMS_Main main
+máj. 20, 2022 12:48:29 DE. WMS_Main main
 INFO: The application has been started.
