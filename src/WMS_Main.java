@@ -170,6 +170,11 @@ public class WMS_Main extends JFrame{
             DefaultMutableTreeNode plantNode = new DefaultMutableTreeNode(plantResult.getString(2));
             ResultSet departmentResult = SQLHandler.executeSelect(String.format("SELECT departmentName FROM department INNER JOIN departmentInPlant " +
                     "ON (department.departmentId=departmentInPlant.departmentId) INNER JOIN plants ON (plants.plantId=departmentInPlant.plantId) WHERE plants.plantId=%d",plantResult.getInt(1)));
+            while(departmentResult.next()){
+                DefaultMutableTreeNode departmentNode = new DefaultMutableTreeNode(departmentResult.getString(1));
+                plantNode.add(departmentNode);
+            }
+            plantsNode.add(plantNode);
         }
         return null;
     }
