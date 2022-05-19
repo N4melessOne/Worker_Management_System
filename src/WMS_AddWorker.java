@@ -3,6 +3,7 @@ import BaseClasses.Worker;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class WMS_AddWorker extends JFrame{
@@ -39,7 +40,7 @@ public class WMS_AddWorker extends JFrame{
                 Worker newWorker = new Worker();
                 newWorker.setWorkerName(workerNameTb.getText());
                 newWorker.setWorkerAddress(addressTb.getText());
-                newWorker.setBirthDate(Timestamp.valueOf(birthDateTb.getText()));
+                newWorker.setBirthDate(Date.valueOf(birthDateTb.getText()));
                 newWorker.setDepartmentId(Integer.parseInt(departmentIdTb.getText()));
                 newWorker.setLeader(leaderCb.isSelected());
                 newWorker.setMobile(mobileTb.getText());
@@ -47,7 +48,7 @@ public class WMS_AddWorker extends JFrame{
                 newWorker.setSalary(Integer.parseInt(salaryTb.getText()));
 
                 Boolean created = SQLHandler.executeInsert(String.format("INSERT INTO workers (workerName,workerAddress,birthDate,departmentId,leader,mobile,email,salary)" +
-                        " VALUES (%s,%s,%t,%d,%b,%s,%s,%d)",newWorker.getWorkerName(),newWorker.getWorkerAddress(),newWorker.getBirthDate(),
+                        " VALUES (%s,%s,%s,%d,%b,%s,%s,%d)",newWorker.getWorkerName(),newWorker.getWorkerAddress(),newWorker.getBirthDate().toString(),
                         newWorker.getDepartmentId(),newWorker.getLeader() ? 1 : null,newWorker.getMobile(),newWorker.getEmail(),newWorker.getSalary()));
 
                 //TODO:Doesn't work, so should check it out!
