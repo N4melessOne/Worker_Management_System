@@ -3,6 +3,8 @@ import BaseClasses.Plant;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class WMS_AddPlant extends JFrame{
     private JPanel WMS_AddPlant;
@@ -27,15 +29,20 @@ public class WMS_AddPlant extends JFrame{
         addBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Plant newPlant = new Plant();
-                newPlant.setPlantName(plantNameTb.getText());
-                newPlant.setPlantAddress(plantAddressTb.getText());
-                newPlant.setRevenue(Integer.parseInt(revenueTb.getText()));
-                newPlant.setCost(Integer.parseInt(costTb.getText()));
+                Boolean created = false;
+                PreparedStatement statement = null;
+                try {
+                    statement = SQLHandler.connection.prepareStatement("INSERT INTO plants (plantName, plantAddress, revenue, cost) VALUES (?,?,?,?)");
 
-                Boolean created = SQLHandler.executeInsert(String.format("INSERT INTO plants (plantName,plantAddress,revenue,cost)" +
-                                " VALUES (%s,%s, %d,%d)",newPlant.getPlantName(),newPlant.getPlantAddress(), newPlant.getRevenue(), newPlant.getCost()));
+                    statement.setString(1, plantNameTb.getText());
+                    statement.setString(2,plantAddressTb.getText());
+                    statement.setInt(3,Integer.parseInt(revenueTb.getText()));
+                    statement.setInt(4,Integer.parseInt(costTb.getText()));
 
+                    created = SQLHandler.executeInsert(statement);
+                } catch (SQLException ex) {
+                    //TODO:LOGGING!
+                }
                 if(created){
                     JOptionPane.showMessageDialog(WMS_AddPlant, "You have successfully created a new plant!");
                 }

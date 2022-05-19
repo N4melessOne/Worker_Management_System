@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class WMS_AddWorker extends JFrame{
     private JPanel WMS_AddWorker;
@@ -37,28 +39,35 @@ public class WMS_AddWorker extends JFrame{
         addWorkerBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO:Try to validate all the information, if there's time for it!
-                Worker newWorker = new Worker();
-                newWorker.setWorkerName(workerNameTb.getText());
-                newWorker.setWorkerAddress(addressTb.getText());
-                newWorker.setBirthDate(Date.valueOf(birthDateTb.getText()));
-                newWorker.setDepartmentId(Integer.parseInt(departmentIdTb.getText()));
-                newWorker.setLeader(leaderCb.isSelected());
-                newWorker.setMobile(mobileTb.getText());
-                newWorker.setEmail(emailTb.getText());
-                newWorker.setSalary(Integer.parseInt(salaryTb.getText()));
+                Boolean created = false;
+                PreparedStatement statement = null;
+                try {
+                    statement = SQLHandler.connection.prepareStatement("INSERT INTO workers (workerName, workerAddress, birthDate, departmentId, leader, mobile, email, salary, plantId) VALUES (?,?,?,?,?,?,?,?,?)");
 
-                Boolean created = SQLHandler.executeInsert(String.format("INSERT INTO worker_management_system.workers (workerName, workerAddress, birthDate, departmentId, leader, mobile, email, salary) VALUES (%s,%s,%s,%d,%b,%s,%s,%d)", newWorker.getWorkerName(),newWorker.getWorkerAddress(),newWorker.getBirthDate().toString(),
-                        newWorker.getDepartmentId(),newWorker.getLeader() ? 1 : null,newWorker.getMobile(),newWorker.getEmail(),newWorker.getSalary()));
+                    statement.setString(1, workerNameTb.getText());
+                    statement.setString(2,addressTb.getText());
+                    statement.setDate(3, Date.valueOf(birthDateTb.getText()));
+                    statement.setInt(4,Integer.parseInt(departmentIdTb.getText()));
+                    statement.setInt(9,Integer.parseInt(plantIdTb.getText()));
+                    statement.setBoolean(5,leaderCb.isSelected());
+                    statement.setString(6,mobileTb.getText());
+                    statement.setString(7,emailTb.getText());
+                    statement.setInt(8,Integer.parseInt(salaryTb.getText()));
 
-                //TODO:Doesn't work, so should check it out!
+                    created = SQLHandler.executeInsert(statement);
+                } catch (SQLException ex) {
+                    //TODO:LOGGING!
+                }
                 if(created){
                     JOptionPane.showMessageDialog(WMS_AddWorker, "You have successfully created a new worker!");
-                    newWorker = null;
+                    try {
+                        WMS_Main.getWorkers();
+                    } catch (SQLException ex) {
+                        //TODO:Log something.
+                    }
                 }
                 else{
                     JOptionPane.showMessageDialog(WMS_AddWorker, "There was a problem with inserting the new worker!"); //TODO:Try to be specific here!
-                    newWorker = null;
                 }
             }
         });

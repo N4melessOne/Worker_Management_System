@@ -1,4 +1,4 @@
-máj. 20, 2022 1:24:05 DE. WMS_Main main
+máj. 20, 2022 1:48:01 DE. Log Logi
 INFO: The application has been started.
-máj. 20, 2022 1:24:15 DE. WMS_LoginForm$1 actionPerformed
+máj. 20, 2022 1:48:05 DE. Log Logi
 INFO: Nagy János has logged in.

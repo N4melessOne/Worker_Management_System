@@ -34,7 +34,7 @@ public class WMS_AddDepartment extends JFrame{
                     //TODO:Log!!!
                 }
                 if(created){
-                    JOptionPane.showMessageDialog(WMS_AddDepartment, "You have successfully created a new plant!");
+                    JOptionPane.showMessageDialog(WMS_AddDepartment, "You have successfully created a new plant!");//TODO:LOG!
                 }
                 else{
                     JOptionPane.showMessageDialog(WMS_AddDepartment, "There was a problem with inserting the new plant!"); //TODO:Try to be specific here!
