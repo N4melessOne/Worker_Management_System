@@ -1,5 +1,3 @@
-import BaseClasses.Worker;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +21,7 @@ public class WMS_AddWorker extends JFrame{
     private JLabel emailLbl;
     private JLabel salaryLbl;
     private JTextField birthDateTb;
+    private JCheckBox leaderCb;
 
     public WMS_AddWorker(){
         setContentPane(WMS_AddWorker);

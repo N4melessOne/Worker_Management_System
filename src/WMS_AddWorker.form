@@ -126,16 +126,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="17a96" class="javax.swing.JTextField" binding="positionTb">
-        <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="100" height="-1"/>
-            <preferred-size width="250" height="-1"/>
-            <maximum-size width="250" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
       <component id="c9436" class="javax.swing.JTextField" binding="mobileTb">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
@@ -172,6 +162,14 @@
         </constraints>
         <properties>
           <text value="Add Worker"/>
+        </properties>
+      </component>
+      <component id="cc0c0" class="javax.swing.JCheckBox" binding="leaderCb">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Leader"/>
         </properties>
       </component>
     </children>
