@@ -56,7 +56,11 @@ public class WMS_Main extends JFrame{
         setTitle("WMS Main Window");
         setSize(1280, 720);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //createUIComponents();
+        try {
+            createUIComponents();
+        } catch (SQLException e) {
+            //TODO:log if there are any problems!
+        }
         setVisible(true);
         setLocationRelativeTo(null);
         modifyFunctions();
