@@ -1,6 +1,9 @@
+import BaseClasses.Worker;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Timestamp;
 
 public class WMS_AddWorker extends JFrame{
     private JPanel WMS_AddWorker;
@@ -8,7 +11,7 @@ public class WMS_AddWorker extends JFrame{
     private JLabel workerNameLbl;
     private JTextField addressTb;
     private JTextField departmentIdTb;
-    private JTextField positionTb;
+    private JCheckBox leaderCb;
     private JTextField mobileTb;
     private JTextField emailTb;
     private JTextField salaryTb;
@@ -16,12 +19,10 @@ public class WMS_AddWorker extends JFrame{
     private JLabel workerAddressLbl;
     private JLabel birthDateLbl;
     private JLabel departmentIdLbl;
-    private JLabel isLeaderLbl;
     private JLabel mobileLbl;
     private JLabel emailLbl;
     private JLabel salaryLbl;
     private JTextField birthDateTb;
-    private JCheckBox leaderCb;
 
     public WMS_AddWorker(){
         setContentPane(WMS_AddWorker);
@@ -35,10 +36,19 @@ public class WMS_AddWorker extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO:Try to validate all the information, if there's time for it!
-                String[] data = { workerNameTb.getText(), addressTb.getText(), birthDateTb.getText(),
-                        positionTb.getText(), departmentIdTb.getText(), mobileTb.getText(), emailTb.getText(), salaryTb.getText() };
+                Worker newWorker = new Worker();
+                newWorker.setWorkerName(workerNameTb.getText());
+                newWorker.setWorkerAddress(addressTb.getText());
+                newWorker.setBirthDate(Timestamp.valueOf(birthDateTb.getText()));
+                newWorker.setDepartmentId(Integer.parseInt(departmentIdTb.getText()));
+                newWorker.setLeader(leaderCb.isSelected());
+                newWorker.setMobile(mobileTb.getText());
+                newWorker.setEmail(emailTb.getText());
+                newWorker.setSalary(Integer.parseInt(salaryTb.getText()));
+
                 Boolean created = SQLHandler.executeInsert(String.format("INSERT INTO workers (workerName,workerAddress,birthDate,departmentId,leader,mobile,email,salary)" +
-                        " VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]));
+                        " VALUES (%s,%s,%t,%d,%b,%s,%s,%d)",newWorker.getWorkerName(),newWorker.getWorkerAddress(),newWorker.getBirthDate(),
+                        newWorker.getDepartmentId(),newWorker.getLeader() ? 1 : null,newWorker.getMobile(),newWorker.getEmail(),newWorker.getSalary()));
 
                 //TODO:Doesn't work, so should check it out!
                 if(created){
