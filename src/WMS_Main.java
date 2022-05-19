@@ -5,6 +5,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class WMS_Main extends JFrame{
     private JPanel WMS_MainWindow;
@@ -26,6 +30,7 @@ public class WMS_Main extends JFrame{
     private WMS_DeleteDepartment deleteDepartment;
     private WMS_DeleteWorker deleteWorker;
     private WMS_LoginForm loginForm;
+    public static Logger logger;
 
     public static Boolean getLeaderSignedIn() {
         return isLeaderSignedIn;
@@ -202,6 +207,10 @@ public class WMS_Main extends JFrame{
     }
 
     public static void main(String[] args) throws SQLException {
+        WMS_Main.logger = Logger.getLogger("log");
+        logger.setLevel(Level.INFO);
+        logger.info(String.format("The application has been started \t %s", Timestamp.valueOf(LocalDateTime.now()).toString()));
+
         JFrame WMSMainWindow = new WMS_Main();
         WMSMainWindow.pack();
         SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
