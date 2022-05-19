@@ -1,8 +1,4 @@
-
-
 import java.sql.*;
-import java.util.ArrayList;
-
 
 public class SQLHandler {
     private static Connection connection;
@@ -52,5 +48,13 @@ public class SQLHandler {
             return false;
         }
         return true;
+    }
+
+    public static int countResult(ResultSet result) throws SQLException {
+        int numberOfRows = 0;
+        while (result.next()){
+            numberOfRows++;
+        }
+        return numberOfRows;
     }
 }

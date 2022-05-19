@@ -7,6 +7,7 @@ public class Worker {
     private int salary;
     private String workerAddress;
     private int departmentId;
+    private int plantId;
     private boolean isLeader;
     private Date birthDate;
     private String workerName;
@@ -17,12 +18,13 @@ public class Worker {
 
     }
 
-    public Worker(int workerId, int salary, String workerAddress, int departmentId, boolean isLeader,
+    public Worker(int workerId, int salary, String workerAddress, int departmentId, int plantId, boolean isLeader,
                   Date birthDate, String workerName, String mobile, String email) {
         this.workerId = workerId;
         this.salary = salary;
         this.workerAddress = workerAddress;
         this.departmentId = departmentId;
+        this.plantId = plantId;
         this.isLeader = isLeader;
         this.birthDate = birthDate;
         this.workerName = workerName;
@@ -100,5 +102,17 @@ public class Worker {
 
     public int getWorkerId() {
         return workerId;
+    }
+
+    public int getPlantId() {
+        return plantId;
+    }
+
+    public void setPlantId(int plantId) {
+        this.plantId = plantId;
+    }
+
+    public boolean isLeader() {
+        return isLeader;
     }
 }
