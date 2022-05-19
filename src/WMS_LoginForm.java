@@ -40,17 +40,16 @@ public class WMS_LoginForm extends JFrame{
                             JOptionPane.showMessageDialog(WMS_LoginForm, "You are successfully logged in as a leader!");
                             WMS_Main.setLeaderSignedIn(true);
                             try{
-                                Log mainLog = new Log("log.txt");
-                                mainLog.logger.info(String.format("%s has logged in.", resultList.get(1)));
-                            } catch(Exception exception){}
+                                Log.Logi("log.txt", String.format("%s has logged in.", resultList.get(1)));
+                            } catch(Exception exc){
+                            }
 
                             dispose();
                         }
                         else {
-                            try {
-                                Log mainLog = new Log("log.txt");
-                                mainLog.logger.info(String.format("%s has tried to log in.", resultList.get(1)));
-                            } catch (Exception exception) {
+                            try{
+                                Log.Logi("log.txt", String.format("%s has tried to log in.", resultList.get(1)));
+                            } catch(Exception exc){
                             }
                         }
                     }

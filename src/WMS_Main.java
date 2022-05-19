@@ -233,8 +233,7 @@ public class WMS_Main extends JFrame{
 
     public static void main(String[] args) throws SQLException {
         try{
-         Log mainLog = new Log("log.txt");
-         mainLog.logger.info("The application has been started.");
+         Log.Logi("log.txt", "The application has been started.");
         } catch(Exception e){
 
         }
