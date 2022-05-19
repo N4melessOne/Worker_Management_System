@@ -4,6 +4,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -55,7 +56,7 @@ public class WMS_Main extends JFrame{
         setTitle("WMS Main Window");
         setSize(1280, 720);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        createUIComponents();
+        //createUIComponents();
         setVisible(true);
         setLocationRelativeTo(null);
         modifyFunctions();
@@ -162,21 +163,18 @@ public class WMS_Main extends JFrame{
         });
     }
 
-    public static DefaultMutableTreeNode getPlantsTree(){
-        int p=0; //n= number of plants, i=number of divisions
-        int d=0; //d= number of divisions
-        DefaultMutableTreeNode plant;
-        DefaultMutableTreeNode div;
-        for (int i=0;i<=p; i++){
-            String plantName =
-            plant = new DefaultMutableTreeNode("plant%d",);
-
-            for(int j=0;j<=d; j++) {
-                div = new DefaultMutableTreeNode();
-            }
+    public static DefaultMutableTreeNode getPlantsTree() throws SQLException {
+        DefaultMutableTreeNode plantsNode = new DefaultMutableTreeNode("Plants");
+        ResultSet plantResult = SQLHandler.executeSelect("SELECT plantId,plantName FROM plants");
+        while(plantResult.next()){
+            DefaultMutableTreeNode plantNode = new DefaultMutableTreeNode(plantResult.getString(2));
+            ResultSet departmentResult = SQLHandler.executeSelect(String.format("SELECT departmentName FROM department INNER JOIN departmentInPlant " +
+                    "ON (department.departmentId=departmentInPlant.departmentId) INNER JOIN plants ON (plants.plantId=departmentInPlant.plantId) WHERE plants.plantName=%d",plantResult.getInt(1)));
         }
+        return null;
     }
-    /*public static DefaultMutableTreeNode getPlantsTree(){
+    /*
+        public static DefaultMutableTreeNode getPlantsTree(){
         DefaultMutableTreeNode plant0 = new DefaultMutableTreeNode("Plant0");
         DefaultMutableTreeNode div0 = new DefaultMutableTreeNode("division0");
         DefaultMutableTreeNode div1 = new DefaultMutableTreeNode("division1");
@@ -230,7 +228,7 @@ public class WMS_Main extends JFrame{
         SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
     }
 
-    private void createUIComponents() {
+    private void createUIComponents() throws SQLException {
         plantsTree = new JTree(WMS_Main.getPlantsTree());
         plantsTree.setScrollsOnExpand(true);
         workersTable = WMS_Main.getWorkers();
