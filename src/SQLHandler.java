@@ -49,4 +49,12 @@ public class SQLHandler {
         }
         return true;
     }
+
+    public static int countResult(ResultSet result) throws SQLException {
+        int numberOfRows = 0;
+        while (result.next()){
+            numberOfRows++;
+        }
+        return numberOfRows;
+    }
 }

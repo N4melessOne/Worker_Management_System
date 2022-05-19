@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -180,15 +181,39 @@ public class WMS_Main extends JFrame{
         return plantsNode;
     }
 
-    public static JTable getWorkers(){
-        String[][] data = {{"0", "0", "0", "0", "0", "0", "0", "0"},
-                {"0", "0", "0", "0", "0", "0", "0", "0"},
-                {"0", "0", "0", "0", "0", "0", "0", "0"},
-                {"0", "0", "0", "0", "0", "0", "0", "0"}};
-        String[] columns = {"Name", "Address", "Date of Birth", "Post", "Mobile", "Email", "Salary"};
-        JTable tempTable = new JTable(data, columns);
+    public static JTable getWorkers() throws SQLException {
+        //String[][] data = {{"0", "0", "0", "0", "0", "0", "0", "0"},
+        //        {"0", "0", "0", "0", "0", "0", "0", "0"},
+        //        {"0", "0", "0", "0", "0", "0", "0", "0"},
+        //        {"0", "0", "0", "0", "0", "0", "0", "0"}};
+        //String[] columns = {"Name", "Address", "Date of Birth", "Post", "Mobile", "Email", "Salary"};
+        //JTable tempTable = new JTable(data, columns);
+//
+        //return  tempTable;
 
-        return  tempTable;
+        JTable workerTable;
+        String[] columns = {"Name", "Address", "Date of Birth", "ID of Department", "ID of Plant",
+                            "Is leader", "Mobile", "Email", "Salary"};
+        ResultSet workerResult = SQLHandler.executeSelect("SELECT * FROM workers");
+        int numberOfRows = SQLHandler.countResult(workerResult);
+        String[][] workerData = new String[numberOfRows][9];
+        workerResult = SQLHandler.executeSelect("SELECT * FROM workers");
+        int i = 0;
+        while(workerResult.next()){
+            workerData[i][0] = workerResult.getString("workerName");
+            workerData[i][1] = workerResult.getString("workerAddress");
+            workerData[i][2] = workerResult.getString("birthDate");
+            workerData[i][3] = workerResult.getString("departmentId");
+            workerData[i][4] = workerResult.getString("plantId");
+            workerData[i][5] = workerResult.getString("leader");
+            workerData[i][6] = workerResult.getString("mobile");
+            workerData[i][7] = workerResult.getString("email");
+            workerData[i][8] = workerResult.getString("salary");
+            i++;
+        }
+        DefaultTableModel workerTableModel = new DefaultTableModel(workerData, columns);
+        workerTable = new JTable(workerTableModel);
+        return workerTable;
     }
 
     public static void main(String[] args) throws SQLException {

@@ -7,3 +7,7 @@ INFO: The application has been opened	-	2022-05-19 23:04:23.6584743máj. 19, 202
 INFO: The application has been started.
 máj. 19, 2022 11:38:45 DU. WMS_Main main
 INFO: The application has been started.
+máj. 20, 2022 12:02:31 DE. WMS_Main main
+INFO: The application has been started.
+máj. 20, 2022 12:03:33 DE. WMS_Main main
+INFO: The application has been started.
