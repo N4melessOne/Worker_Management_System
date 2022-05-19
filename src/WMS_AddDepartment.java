@@ -3,6 +3,8 @@ import BaseClasses.Department;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class WMS_AddDepartment extends JFrame{
     private JPanel WMS_AddDepartment;
@@ -22,12 +24,15 @@ public class WMS_AddDepartment extends JFrame{
         addDepartmentBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Department newDepartment =  new Department();
-                newDepartment.setDepartmentName(departmentNameTb.getText());
-                newDepartment.setMaxWorkers(Integer.parseInt(maxWorkersTb.getText()));
-
-                Boolean created =SQLHandler.executeInsert(String.format("INSERT INTO department (departmentName,maxWorkers)" +
-                        " VALUES (%s, %d)",newDepartment.getDepartmentName(),newDepartment.getMaxWorkers()));
+                Boolean created = false;
+                try {
+                    PreparedStatement statement = SQLHandler.connection.prepareStatement("INSERT INTO department (departmentName, maxWorkers) VALUES (?, ?)");
+                    statement.setString(1, departmentNameTb.getText());
+                    statement.setInt(2,Integer.parseInt(maxWorkersTb.getText()));
+                    created = SQLHandler.executeInsert(statement);
+                } catch (SQLException ex) {
+                    //TODO:Log!!!
+                }
                 if(created){
                     JOptionPane.showMessageDialog(WMS_AddDepartment, "You have successfully created a new plant!");
                 }

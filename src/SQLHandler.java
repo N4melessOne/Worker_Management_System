@@ -1,7 +1,7 @@
 import java.sql.*;
 
 public class SQLHandler {
-    private static Connection connection;
+    public static Connection connection;
     private static  PreparedStatement statement;
 
     public static void connect(String jdbcUrl) throws SQLException {
@@ -46,6 +46,16 @@ public class SQLHandler {
             statement.executeUpdate();
         } catch (SQLException e) {
             return false;
+        }
+        return true;
+    }
+
+    public static Boolean executeInsert(PreparedStatement statement){
+        try {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            return false;
+            //TODO:LOG!
         }
         return true;
     }
