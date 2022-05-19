@@ -43,6 +43,7 @@ public class WMS_LoginForm extends JFrame{
                                 Log mainLog = new Log("log.txt");
                                 mainLog.logger.info(String.format("%s has logged in.", resultList.get(1)));
                             } catch(Exception exception){}
+
                             dispose();
                         }
                         else {
