@@ -11,11 +11,11 @@ public class WMS_DeletePlant extends JFrame{
     public WMS_DeletePlant(){
         setContentPane(WMS_DeletePlant);
         setTitle("WMS Delete Plant");
-        setLocationRelativeTo(null);
         setSize(320,200);
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
 
         deleteBtn.addActionListener(new ActionListener() {
             @Override
