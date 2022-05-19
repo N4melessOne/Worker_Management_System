@@ -47,16 +47,17 @@ public class WMS_AddWorker extends JFrame{
                 newWorker.setEmail(emailTb.getText());
                 newWorker.setSalary(Integer.parseInt(salaryTb.getText()));
 
-                Boolean created = SQLHandler.executeInsert(String.format("INSERT INTO workers (workerName,workerAddress,birthDate,departmentId,leader,mobile,email,salary)" +
-                        " VALUES (%s,%s,%s,%d,%b,%s,%s,%d)",newWorker.getWorkerName(),newWorker.getWorkerAddress(),newWorker.getBirthDate().toString(),
+                Boolean created = SQLHandler.executeInsert(String.format("INSERT INTO worker_management_system.workers (workerName, workerAddress, birthDate, departmentId, leader, mobile, email, salary) VALUES (%s,%s,%s,%d,%b,%s,%s,%d)", newWorker.getWorkerName(),newWorker.getWorkerAddress(),newWorker.getBirthDate().toString(),
                         newWorker.getDepartmentId(),newWorker.getLeader() ? 1 : null,newWorker.getMobile(),newWorker.getEmail(),newWorker.getSalary()));
 
                 //TODO:Doesn't work, so should check it out!
                 if(created){
                     JOptionPane.showMessageDialog(WMS_AddWorker, "You have successfully created a new worker!");
+                    newWorker = null;
                 }
                 else{
                     JOptionPane.showMessageDialog(WMS_AddWorker, "There was a problem with inserting the new worker!"); //TODO:Try to be specific here!
+                    newWorker = null;
                 }
             }
         });
