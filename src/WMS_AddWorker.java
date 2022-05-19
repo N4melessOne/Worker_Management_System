@@ -23,6 +23,8 @@ public class WMS_AddWorker extends JFrame{
     private JLabel emailLbl;
     private JLabel salaryLbl;
     private JTextField birthDateTb;
+    private JTextField plantIdTb;
+    private JLabel plantIdLbl;
 
     public WMS_AddWorker(){
         setContentPane(WMS_AddWorker);

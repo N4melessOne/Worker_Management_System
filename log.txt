@@ -1,2 +1,9 @@
 máj. 19, 2022 10:57:47 DU. WMS_Main main
 INFO: The application has been opened
+máj. 19, 2022 11:01:45 DU. WMS_Main main
+INFO: The application has been opened
+máj. 19, 2022 11:04:23 DU. WMS_Main main
+INFO: The application has been opened	-	2022-05-19 23:04:23.6584743máj. 19, 2022 11:38:06 DU. WMS_Main main
+INFO: The application has been started.
+máj. 19, 2022 11:38:45 DU. WMS_Main main
+INFO: The application has been started.

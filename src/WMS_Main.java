@@ -6,9 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class WMS_Main extends JFrame{
@@ -195,14 +192,9 @@ public class WMS_Main extends JFrame{
     }
 
     public static void main(String[] args) throws SQLException {
-        //WMS_Main.logger = Logger.getLogger("log");
-        //logger.setLevel(Level.INFO);
-        //logger.info(String.format("The application has been started \t %s", Timestamp.valueOf(LocalDateTime.now()).toString()));
-
-
         try{
          Log mainLog = new Log("log.txt");
-         mainLog.logger.info("The application has been opened");
+         mainLog.logger.info("The application has been started.");
         } catch(Exception e){}
 
         SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
