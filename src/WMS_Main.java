@@ -188,7 +188,7 @@ public class WMS_Main extends JFrame{
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "0"}};
-        String[] columns = {"Name", "Address", "Date of Birth", "Post", "Mobile", "Email", "Salary", "Sex"};
+        String[] columns = {"Name", "Address", "Date of Birth", "Post", "Mobile", "Email", "Salary"};
         JTable tempTable = new JTable(data, columns);
 
         return  tempTable;
