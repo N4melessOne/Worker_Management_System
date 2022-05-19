@@ -163,6 +163,20 @@ public class WMS_Main extends JFrame{
     }
 
     public static DefaultMutableTreeNode getPlantsTree(){
+        int p=0; //n= number of plants, i=number of divisions
+        int d=0; //d= number of divisions
+        DefaultMutableTreeNode plant;
+        DefaultMutableTreeNode div;
+        for (int i=0;i<=p; i++){
+            String plantName =
+            plant = new DefaultMutableTreeNode("plant%d",);
+
+            for(int j=0;j<=d; j++) {
+                div = new DefaultMutableTreeNode();
+            }
+        }
+    }
+    /*public static DefaultMutableTreeNode getPlantsTree(){
         DefaultMutableTreeNode plant0 = new DefaultMutableTreeNode("Plant0");
         DefaultMutableTreeNode div0 = new DefaultMutableTreeNode("division0");
         DefaultMutableTreeNode div1 = new DefaultMutableTreeNode("division1");
@@ -193,7 +207,7 @@ public class WMS_Main extends JFrame{
         plants.add(plant2);
 
         return plants;
-    }
+    }*/
 
     public static JTable getWorkers(){
         String[][] data = {{"0", "0", "0", "0", "0", "0", "0", "0"},
