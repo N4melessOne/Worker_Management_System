@@ -176,7 +176,7 @@ public class WMS_Main extends JFrame{
             }
             plantsNode.add(plantNode);
         }
-        return null;
+        return plantsNode;
     }
     /*
         public static DefaultMutableTreeNode getPlantsTree(){
