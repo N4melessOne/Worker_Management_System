@@ -182,15 +182,6 @@ public class WMS_Main extends JFrame{
     }
 
     public static JTable getWorkers() throws SQLException {
-        //String[][] data = {{"0", "0", "0", "0", "0", "0", "0", "0"},
-        //        {"0", "0", "0", "0", "0", "0", "0", "0"},
-        //        {"0", "0", "0", "0", "0", "0", "0", "0"},
-        //        {"0", "0", "0", "0", "0", "0", "0", "0"}};
-        //String[] columns = {"Name", "Address", "Date of Birth", "Post", "Mobile", "Email", "Salary"};
-        //JTable tempTable = new JTable(data, columns);
-//
-        //return  tempTable;
-
         JTable workerTable;
         String[] columns = {"Name", "Address", "Date of Birth", "ID of Department", "ID of Plant",
                             "Is leader", "Mobile", "Email", "Salary"};
