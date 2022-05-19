@@ -182,39 +182,6 @@ public class WMS_Main extends JFrame{
         }
         return plantsNode;
     }
-    /*
-        public static DefaultMutableTreeNode getPlantsTree(){
-        DefaultMutableTreeNode plant0 = new DefaultMutableTreeNode("Plant0");
-        DefaultMutableTreeNode div0 = new DefaultMutableTreeNode("division0");
-        DefaultMutableTreeNode div1 = new DefaultMutableTreeNode("division1");
-        DefaultMutableTreeNode div2 = new DefaultMutableTreeNode("division2");
-        plant0.add(div0);
-        plant0.add(div1);
-        plant0.add(div2);
-
-        DefaultMutableTreeNode plant1= new DefaultMutableTreeNode("Plant1");
-        DefaultMutableTreeNode div3 = new DefaultMutableTreeNode("division3");
-        DefaultMutableTreeNode div4 = new DefaultMutableTreeNode("division4");
-        DefaultMutableTreeNode div5 = new DefaultMutableTreeNode("division5");
-        plant1.add(div3);
-        plant1.add(div4);
-        plant1.add(div5);
-
-        DefaultMutableTreeNode plant2 = new DefaultMutableTreeNode("Plant2");
-        DefaultMutableTreeNode div6 = new DefaultMutableTreeNode("division6");
-        DefaultMutableTreeNode div7 = new DefaultMutableTreeNode("division7");
-        DefaultMutableTreeNode div8 = new DefaultMutableTreeNode("division8");
-        plant2.add(div6);
-        plant2.add(div7);
-        plant2.add(div8);
-
-        DefaultMutableTreeNode plants = new DefaultMutableTreeNode("Plants");
-        plants.add(plant0);
-        plants.add(plant1);
-        plants.add(plant2);
-
-        return plants;
-    }*/
 
     public static JTable getWorkers(){
         String[][] data = {{"0", "0", "0", "0", "0", "0", "0", "0"},
@@ -228,13 +195,12 @@ public class WMS_Main extends JFrame{
     }
 
     public static void main(String[] args) throws SQLException {
-        WMS_Main.logger = Logger.getLogger("log");
-        logger.setLevel(Level.INFO);
-        logger.info(String.format("The application has been started \t %s", Timestamp.valueOf(LocalDateTime.now()).toString()));
-
+        //WMS_Main.logger = Logger.getLogger("log");
+        //logger.setLevel(Level.INFO);
+        //logger.info(String.format("The application has been started \t %s", Timestamp.valueOf(LocalDateTime.now()).toString()));
+        SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
         JFrame WMSMainWindow = new WMS_Main();
         WMSMainWindow.pack();
-        SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
     }
 
     private void createUIComponents() throws SQLException {
