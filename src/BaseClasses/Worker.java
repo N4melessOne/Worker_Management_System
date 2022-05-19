@@ -5,7 +5,7 @@ import java.util.Date;
 public class Worker {
     private int workerId;
     private int salary;
-    private int workerAddress;
+    private String workerAddress;
     private int departmentId;
     private boolean isLeader;
     private Date birthDate;
@@ -13,7 +13,11 @@ public class Worker {
     private String mobile;
     private String email;
 
-    public Worker(int workerId, int salary, int workerAddress, int departmentId, boolean isLeader,
+    public Worker(){
+
+    }
+
+    public Worker(int workerId, int salary, String workerAddress, int departmentId, boolean isLeader,
                   Date birthDate, String workerName, String mobile, String email) {
         this.workerId = workerId;
         this.salary = salary;
@@ -34,11 +38,11 @@ public class Worker {
         this.salary = salary;
     }
 
-    public int getWorkerAddress() {
+    public String getWorkerAddress() {
         return workerAddress;
     }
 
-    public void setWorkerAddress(int workerAddress) {
+    public void setWorkerAddress(String workerAddress) {
         this.workerAddress = workerAddress;
     }
 
