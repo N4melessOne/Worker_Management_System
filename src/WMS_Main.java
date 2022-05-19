@@ -200,6 +200,11 @@ public class WMS_Main extends JFrame{
         //logger.info(String.format("The application has been started \t %s", Timestamp.valueOf(LocalDateTime.now()).toString()));
 
 
+        try{
+         Log mainLog = new Log("log.txt");
+         mainLog.logger.info("The application has been opened");
+        } catch(Exception e){}
+
         SQLHandler.connect("jdbc:mariadb://localhost:3306/worker_management_system");
         JFrame WMSMainWindow = new WMS_Main();
         WMSMainWindow.pack();
