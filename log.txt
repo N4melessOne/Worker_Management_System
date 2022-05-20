@@ -1,4 +1,4 @@
-máj. 20, 2022 1:48:01 DE. Log Logi
+máj. 20, 2022 2:18:02 DE. Log Logg
 INFO: The application has been started.
-máj. 20, 2022 1:48:05 DE. Log Logi
+máj. 20, 2022 2:18:07 DE. Log Logg
 INFO: Nagy János has logged in.
