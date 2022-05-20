@@ -9,7 +9,7 @@ public class Log {
     public static Logger logger= Logger.getLogger("logger");;
     private static FileHandler fh;
 
-    public  static void Logi(String file_name, String LogMessage) throws SecurityException, IOException{
+    public  static void Logg(String file_name, String LogMessage) throws SecurityException, IOException{
         File f = new File(file_name);
         if(!f.exists()){
             f.createNewFile();

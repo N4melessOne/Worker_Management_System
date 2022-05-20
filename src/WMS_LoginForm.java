@@ -40,7 +40,7 @@ public class WMS_LoginForm extends JFrame{
                             JOptionPane.showMessageDialog(WMS_LoginForm, "You are successfully logged in as a leader!");
                             WMS_Main.setLeaderSignedIn(true);
                             try{
-                                Log.Logi("log.txt", String.format("%s has logged in.", resultList.get(1)));
+                                Log.Logg("log.txt", String.format("%s has logged in.", resultList.get(1)));
                             } catch(Exception exc){
                             }
 
@@ -48,7 +48,7 @@ public class WMS_LoginForm extends JFrame{
                         }
                         else {
                             try{
-                                Log.Logi("log.txt", String.format("%s has tried to log in.", resultList.get(1)));
+                                Log.Logg("log.txt", String.format("%s has tried to log in.", resultList.get(1)));
                             } catch(Exception exc){
                             }
                         }
