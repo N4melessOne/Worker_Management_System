@@ -51,10 +51,12 @@ public class WMS_LoginForm extends JFrame{
                                 Log.Logg("log.txt", String.format("%s has tried to log in.", resultList.get(1)));
                             } catch(Exception exc){
                             }
+                            JOptionPane.showMessageDialog(WMS_LoginForm, "You are not eligible to log in!");
+                            dispose();
                         }
                     }
                 }catch (SQLException ex) {
-                    throw new RuntimeException(ex);
+                    //TODO:Logging!
                 }
             }
         });
